@@ -1,6 +1,15 @@
 <h2><%= @task.title %></h2>
 <p><%= @task.details %></p>
 
+<% if @task.completed %>
+ <label><input type="checkbox" checked></label>
+ <label>Task is completed</label>
+ <% else %>
+ <label><input type="checkbox"></label>
+ <label>Task is completed</label>
+<% end %> 
+ </br>
+
 <%= link_to "Delete #{@task.title}",
             task_path(@task),
             method: :delete,

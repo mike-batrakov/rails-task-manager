@@ -3,8 +3,14 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task)%></li>
-   
+    <li>
+    <% if task.completed %>
+    <label><input type="checkbox" checked></label>
+    <%= link_to task.title, task_path(task)%></li>
+    <% else %>
+    <label><input type="checkbox"></label>
+    <%= link_to task.title, task_path(task)%></li>
+  <% end %> 
   <% end %>
 </ul>
 
